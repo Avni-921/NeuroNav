@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroNav Home - Adaptive Shopping Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🧠 NeuroNav</h1>
+            </div>
+            
+            <!-- Emotion Detection Panel -->
+            <div class="emotion-header-panel">
+                <video id="video" autoplay muted width="120" height="90"></video>
+                <canvas id="overlay" width="120" height="90"></canvas>
+                <div class="emotion-info">
+                    <span id="emotion-text">😊 Happy</span>
+                    <button id="toggle-camera" class="btn-small">📹</button>
+                </div>
+            </div>
+
+            <!-- Adaptive UI Controls -->
+            <div class="adaptive-controls-header">
+                <label for="ui-suggestions">🎨 Adapt Interface:</label>
+                <select id="ui-suggestions">
+                    <option value="">Auto-Adapt</option>
+                    <option value="calm">🌿 Calm Mode</option>
+                    <option value="focus">🎯 Focus Mode</option>
+                    <option value="comfort">☁️ Comfort Mode</option>
+                    <option value="minimal">📱 Minimal Mode</option>
+                    <option value="colorful">🌈 Vibrant Mode</option>
+                </select>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">Shop</a>
+                <a href="#" class="nav-item">Categories</a>
+                <a href="#" class="nav-item">Deals</a>
+                <a href="#" class="nav-item">Cart (0)</a>
+                <a href="#" class="nav-item">Profile</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2 id="hero-title">Welcome to Your Personalized Shopping Experience</h2>
+                <p id="hero-subtitle">Adaptive interface that responds to your emotions and needs</p>
+                <button class="cta-button" id="shop-now-btn">Start Shopping</button>
+            </div>
+        </section>
+
+        <!-- Product Categories Grid -->
+        <section class="categories-section">
+            <h3>Shop by Category</h3>
+            <div class="categories-grid" id="categories-grid">
+                <div class="category-card" data-category="electronics">
+                    <div class="category-icon">📱</div>
+                    <h4>Electronics</h4>
+                    <p>Latest gadgets & tech</p>
+                </div>
+                <div class="category-card" data-category="clothing">
+                    <div class="category-icon">👕</div>
+                    <h4>Clothing</h4>
+                    <p>Fashion for everyone</p>
+                </div>
+                <div class="category-card" data-category="home">
+                    <div class="category-icon">🏠</div>
+                    <h4>Home & Garden</h4>
+                    <p>Comfort & style</p>
+                </div>
+                <div class="category-card" data-category="books">
+                    <div class="category-icon">📚</div>
+                    <h4>Books</h4>
+                    <p>Knowledge & stories</p>
+                </div>
+                <div class="category-card" data-category="health">
+                    <div class="category-icon">💊</div>
+                    <h4>Health & Beauty</h4>
+                    <p>Wellness products</p>
+                </div>
+                <div class="category-card" data-category="sports">
+                    <div class="category-icon">⚽</div>
+                    <h4>Sports & Outdoors</h4>
+                    <p>Active lifestyle</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-section">
+            <h3>Featured Products</h3>
+            <div class="products-grid" id="products-grid">
+                <div class="product-card">
+                    <div class="product-image">📱</div>
+                    <h4>Smartphone Pro</h4>
+                    <p class="price">$699.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <h4>Laptop Ultra</h4>
+                    <p class="price">$1,299.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🎧</div>
+                    <h4>Wireless Headphones</h4>
+                    <p class="price">$199.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">⌚</div>
+                    <h4>Smart Watch</h4>
+                    <p class="price">$399.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emotion-Based Suggestions -->
+        <section class="suggestions-section" id="emotion-suggestions">
+            <h3 id="suggestions-title">Suggestions for You</h3>
+            <div class="suggestions-content" id="suggestions-content">
+                <p>We're analyzing your preferences to provide personalized suggestions...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Accessibility Panel -->
+    <div class="accessibility-panel" id="accessibility-panel">
+        <button class="panel-toggle" id="panel-toggle">🎛️</button>
+        <div class="panel-content">
+            <h4>Customize Your Experience</h4>
+            
+            <div class="setting-group">
+                <label>Background Color:</label>
+                <select id="bg-color-select">
+                    <option value="default">Default</option>
+                    <option value="light">Light Blue</option>
+                    <option value="warm">Warm Beige</option>
+                    <option value="dark">Dark Mode</option>
+                    <option value="green">Calm Green</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label>Text Size:</label>
+                <input type="range" id="font-size-slider" min="12" max="24" value="16">
+                <span id="font-size-value">16px</span>
+            </div>
+
+            <div class="setting-group">
+                <label>Contrast:</label>
+                <input type="range" id="contrast-slider" min="80" max="150" value="100">
+                <span id="contrast-value">100%</span>
+            </div>
+
+            <div class="setting-group">
+                <label>Card Spacing:</label>
+                <select id="spacing-select">
+                    <option value="compact">Compact</option>
+                    <option value="normal">Normal</option>
+                    <option value="spacious">Spacious</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="reduce-animations"> Reduce Animations
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="high-contrast"> High Contrast
+                </label>
+            </div>
+
+            <button id="reset-settings" class="btn-small">Reset to Default</button>
+        </div>
+    </div>
+
+    <script src="emotion-detection.js"></script>
+    <script src="home-script.js"></script>
+</body>
+</html>
